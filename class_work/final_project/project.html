@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>ychou7 Final Project</title>
+  <!--
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  // -->
+  <link rel="StyleSheet" type="text/css" href="css/project.css" />
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <!-- JQuery with autocomplete -->
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script type="text/javascript" src="js/search.js"></script>
+  <script>
+  $( function() {
+     var availableTags1 = [
+      "downstream_gene_variant",
+      "missense_variant"
+     ];
+    $( "#search_term1" ).autocomplete({
+      source: availableTags1,
+      minLength: 0
+    });
+  } );
+  </script>
+  <script>
+  $( function() {
+     var availableTags2 = [
+      "MODIFIER",
+      "MODERATE"
+     ];
+    $( "#search_term2" ).autocomplete({
+      source: availableTags2,
+      minLength: 0
+    });
+  } );
+  </script>
+</head>
+<body id="main" background="./biopython_pic.png">
+
+<h1>VCF file Annotation database</h1>
+<div class="ui-widget" id="one">
+    <form name="gene_search" id="gene_search" action="">
+	<p> Enter chromosome number 1 to 22 </p>
+	    <input name="chrom" type ="search" value="" autofocus="autofocus" placeholder="Enter chromosome number" /><br /><br /><br />
+	<p> Enter INFO search term one </p>
+        <input name="search_term1" type="search" id="search_term1" value="" autofocus="autofocus" placeholder="Enter a search term" /><br /><br /><br />
+	<p> Enter INFO search term two </p>
+		<input name="search_term2" type="search" id="search_term2" value="" autofocus="autofocus" placeholder="Enter a search term" /><br /><br /><br />
+        <input name="submit" type="submit" id="submit" value="submit" />
+    </form>
+    </div>
+
+    <section id='results'>
+        <p>
+            <span id='match_count'>0</span> match(es) found.
+        </p>
+        <table>
+            <thead>
+            <tr>
+                <td>chromosome</td>
+                <td>position</td>
+				<td>id_snp</td>
+            </tr>
+            </thead>
+            <tbody>
+                <!-- this will be filled in by javascript when there are results -->
+            </tbody>
+    </section>
+
+</body>
+</html>
